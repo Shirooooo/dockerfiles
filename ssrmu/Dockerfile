@@ -26,6 +26,7 @@ COPY . /root/shadowsocks
 WORKDIR /root/shadowsocks
 
 RUN  apk --no-cache add \
+                        tzdata \
                         curl \
                         libintl \
                         python3-dev \
