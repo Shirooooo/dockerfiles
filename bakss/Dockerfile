@@ -26,7 +26,6 @@ COPY . /root/shadowsocks
 WORKDIR /root/shadowsocks
 
 RUN  apk --no-cache add \
-			gcc \
                         curl \
                         libintl \
                         libsodium-dev \
@@ -38,6 +37,7 @@ RUN  apk --no-cache add \
                         libtool \
                         libffi-dev            && \
      apk --no-cache add --virtual .build-deps \
+			tzdata \
                         tar \
                         make \
                         gettext \
@@ -45,6 +45,7 @@ RUN  apk --no-cache add \
                         automake \
                         build-base \
                         linux-headers         && \
+     cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && echo 'Asia/Shanghai' >/etc/timezone   && \
      cp  /usr/bin/envsubst  /usr/local/bin/   && \
      pip install --upgrade pip                && \
      pip install -r requirements.txt          && \
