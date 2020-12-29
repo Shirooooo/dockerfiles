@@ -26,6 +26,7 @@ COPY . /root/shadowsocks
 WORKDIR /root/shadowsocks
 
 RUN  apk --no-cache add \
+			tzdata \
                         curl \
                         libintl \
                         libsodium-dev \
@@ -37,7 +38,6 @@ RUN  apk --no-cache add \
                         libtool \
                         libffi-dev            && \
      apk --no-cache add --virtual .build-deps \
-			tzdata \
                         tar \
                         make \
                         gettext \
