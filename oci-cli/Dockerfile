@@ -1,6 +1,5 @@
-FROM python:3-buster
+FROM python:3-alpine
 
-ARG CLI_VERSION=2.18.0
 ARG BUILD_DATE
 ARG VCS_REF
 
@@ -9,12 +8,11 @@ LABEL maintainer="Shiro" \
     org.label-schema.name="Oracle Cloud Infrastructure CLI" \
     org.label-schema.version=$CLI_VERSION \
     org.label-schema.build-date=$BUILD_DATE \
-    org.label-schema.vcs-ref=$VCS_REF \
-    org.label-schema.docker.cmd="docker run -v \${HOME}/.oci:/root/.oci -it shirolin1997/oci-cli:$CLI_VERSION"
+    org.label-schema.vcs-ref=$VCS_REF 
 
 WORKDIR /oci-cli
 
-RUN apk --no-cache add gcc \
+RUN apk --no-cache add gcc && \
     musl-dev \
     libffi-dev \
     openssl-dev
