@@ -3,7 +3,7 @@ FROM python:3-alpine
 ARG BUILD_DATE
 ARG VCS_REF
 
-LABEL maintainer="Shiro" \
+LABEL maintainer="qwinwin" \
     org.label-schema.schema-version="1.0" \
     org.label-schema.name="Oracle Cloud Infrastructure CLI" \
     org.label-schema.version=$CLI_VERSION \
