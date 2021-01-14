@@ -1,5 +1,4 @@
 FROM python:3.7-alpine
-MAINTAINER FAN VINGA<fanalcest@gmail.com>
 
 ENV NODE_ID=0                     \
     DNS_1=1.0.0.1                 \
@@ -26,31 +25,31 @@ COPY . /root/shadowsocks
 WORKDIR /root/shadowsocks
 
 RUN  apk --no-cache add \
-			tzdata \
-                        curl \
-                        libintl \
-                        libsodium-dev \
-                        openssl-dev \
-                        udns-dev \
-                        mbedtls-dev \
-                        pcre-dev \
-                        libev-dev \
-                        libtool \
-                        libffi-dev            && \
-     apk --no-cache add --virtual .build-deps \
-                        tar \
-                        make \
-                        gettext \
-                        autoconf \
-                        automake \
-                        build-base \
-                        linux-headers         && \
-     cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && echo 'Asia/Shanghai' >/etc/timezone   && \
-     cp  /usr/bin/envsubst  /usr/local/bin/   && \
-     pip install --upgrade pip                && \
-     pip install -r requirements.txt          && \
-     rm -rf ~/.cache && touch /etc/hosts.deny && \
-     apk del --purge .build-deps
+    tzdata \
+    curl \
+    libintl \
+    libsodium-dev \
+    openssl-dev \
+    udns-dev \
+    mbedtls-dev \
+    pcre-dev \
+    libev-dev \
+    libtool \
+    libffi-dev            && \
+    apk --no-cache add --virtual .build-deps \
+    tar \
+    make \
+    gettext \
+    autoconf \
+    automake \
+    build-base \
+    linux-headers         && \
+    cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && echo 'Asia/Shanghai' >/etc/timezone   && \
+    cp  /usr/bin/envsubst  /usr/local/bin/   && \
+    pip install --upgrade pip                && \
+    pip install -r requirements.txt          && \
+    rm -rf ~/.cache && touch /etc/hosts.deny && \
+    apk del --purge .build-deps
 
 CMD envsubst < apiconfig.py > userapiconfig.py && \
     envsubst < config.json > user-config.json  && \
