@@ -12,7 +12,7 @@ LABEL maintainer="Shiro" \
 
 WORKDIR /oci-cli
 
-RUN apk --no-cache add gcc && \
+RUN apk --no-cache add gcc \
     musl-dev \
     libffi-dev \
     openssl-dev
