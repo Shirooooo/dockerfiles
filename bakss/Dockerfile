@@ -3,7 +3,7 @@ FROM python:3.7-alpine
 ENV NODE_ID=0                     \
     DNS_1=1.0.0.1                 \
     DNS_2=8.8.8.8                 \
-    SPEEDTEST=6                   \
+    SPEEDTEST=0                   \
     CLOUDSAFE=0                   \
     AUTOEXEC=0                    \
     ANTISSATTACK=0                \
