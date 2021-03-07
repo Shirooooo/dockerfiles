@@ -10,6 +10,4 @@ RUN apt-get update && \
 COPY docker-entrypoint.sh /docker-entrypoint.sh
 RUN chmod +x docker-entrypoint.sh
 
-EXPOSE ${PRIVOXY_PORT}
-
 ENTRYPOINT ["./docker-entrypoint.sh"]
